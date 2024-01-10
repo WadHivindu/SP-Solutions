@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/', [NewsController::class, 'index'])->name('dashboard');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('news', NewsController::class);
